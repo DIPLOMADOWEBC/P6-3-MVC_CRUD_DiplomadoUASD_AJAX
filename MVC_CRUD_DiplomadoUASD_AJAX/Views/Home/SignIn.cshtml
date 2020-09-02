@@ -1,0 +1,47 @@
+﻿@model MVC_CRUD_DiplomadoUASD_AJAX.Models.SignIn
+
+@{
+    ViewBag.Title = "SignIn";
+}
+
+
+
+<div class="container">
+    <div class="card card-container">
+        <h2 class="titleLogin">Registrarse</h2>
+
+        @using (Html.BeginForm("SignIn", "Home", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                @Html.TextBoxFor(s => s.Name, new { @class = "form-control", @placeholder = "Nombre" })
+                @Html.ValidationMessageFor(s => s.Name, "", new { @class = "text-danger" })
+            </div><br />
+            <div>
+                @Html.TextBoxFor(s => s.LastName, new { @class = "form-control", @placeholder = "Apellido" })
+                @Html.ValidationMessageFor(s => s.LastName, "", new { @class = "text-danger" })
+            </div><br />
+            <div>
+                @Html.TextBoxFor(s => s.UserName, new { @class = "form-control", @placeholder = "Usuario" })
+                @Html.ValidationMessageFor(s => s.UserName, "", new { @class = "text-danger" })
+            </div><br />
+            <div>
+                @Html.TextBoxFor(s => s.Email, new { @class = "form-control", @placeholder = "Email" })
+                @Html.ValidationMessageFor(s => s.Email, "", new { @class = "text-danger" })
+            </div><br />
+            <div>
+                @Html.PasswordFor(s => s.Password, new { @class = "form-control", @placeholder = "Password" })
+                @Html.ValidationMessageFor(s => s.Password, "", new { @class = "text-danger" })
+            </div><br />
+            if (!string.IsNullOrEmpty(ViewBag.Message))
+            {
+                <p class="errorMessage">@ViewBag.Message</p>
+            }
+            <input type="submit" value="Registrarse" class="btn btn-signin" />
+        }
+
+        @Html.ActionLink("Login", "Index", "Home")
+
+    </div>
+</div>
+

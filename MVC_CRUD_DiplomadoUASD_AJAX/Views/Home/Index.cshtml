@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet"/>
+<script src="~/Scripts/employee.js"></script>
+
+<div class="container">
+    <h2>Employees Record</h2>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Employee</button><br/><br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombres
+                </th>
+                <th>
+                    Apellidos
+                </th>
+                <th>
+                    Edad
+                </th>
+                <th>
+                    Estado_Civil
+                </th>
+                <th>
+                    Pais
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">x</button>
+                <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="EmployeeId">ID</label>
+                        <input type="text" class="form-control" id="EmpleadoID" placeholder="Id" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombres">Nombres</label>
+                        <input type="text" class="form-control" id="Nombres" placeholder="Nombres" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellidos">Apellidos</label>
+                        <input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Edad">Edad</label>
+                        <input type="text" class="form-control" id="Edad" placeholder="Edad" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Estado_Civil">Estado_Civil</label>
+                        <input type="text" class="form-control" id="Estado_Civil" placeholder="Estado Civil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Pais">Pais</label>
+                        <input type="text" class="form-control" id="Pais" placeholder="Pais" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none" onclick="Update();">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
